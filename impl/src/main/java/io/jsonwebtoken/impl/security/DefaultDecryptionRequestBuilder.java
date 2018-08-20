@@ -23,6 +23,9 @@ import java.security.Key;
 
 import static io.jsonwebtoken.lang.Arrays.*;
 
+/**
+ * @since 0.11.0
+ */
 public class DefaultDecryptionRequestBuilder<T extends Key> implements DecryptionRequestBuilder<T> {
 
     public static final String AAD_NEEDS_TAG_MSG = "If you specify additional authentication data during " +

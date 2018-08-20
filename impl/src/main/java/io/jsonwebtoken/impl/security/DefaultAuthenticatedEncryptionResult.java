@@ -19,6 +19,9 @@ import io.jsonwebtoken.lang.Arrays;
 import io.jsonwebtoken.lang.Assert;
 import io.jsonwebtoken.security.AuthenticatedEncryptionResult;
 
+/**
+ * @since 0.11.0
+ */
 public class DefaultAuthenticatedEncryptionResult extends DefaultEncryptionResult
         implements AuthenticatedEncryptionResult {
 

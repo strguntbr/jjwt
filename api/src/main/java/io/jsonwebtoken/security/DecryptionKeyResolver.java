@@ -4,6 +4,9 @@ import io.jsonwebtoken.JweHeader;
 
 import java.security.Key;
 
+/**
+ * @since 0.11.0
+ */
 public interface DecryptionKeyResolver {
 
     /**

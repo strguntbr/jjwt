@@ -33,7 +33,7 @@ import java.util.Map;
  * <h3>Creation</h3>
  *
  * <p>It is easiest to create a {@code Header} instance by calling one of the
- * {@link Jwts#header() JWTs.header()} factory methods.</p>
+ * {@link Jwts#header() Jwts.header()} factory methods.</p>
  *
  * @since 0.1
  */
@@ -47,6 +47,14 @@ public interface Header<T extends Header<T>> extends Map<String,Object> {
 
     /** JWT {@code Content Type} header parameter name: <code>"cty"</code> */
     public static final String CONTENT_TYPE = "cty";
+
+    /**
+     * JWT {@code Algorithm} header parameter name: <code>"alg"</code>.
+     *
+     * @see <a href="https://tools.ietf.org/html/rfc7515#section-4.1.1">JWS Algorithm Header</a>
+     * @see <a href="https://tools.ietf.org/html/rfc7516#section-4.1.1">JWE Algorithm Header</a>
+     */
+    public static final String ALGORITHM = "alg";
 
     /** JWT {@code Compression Algorithm} header parameter name: <code>"zip"</code> */
     public static final String COMPRESSION_ALGORITHM = "zip";
@@ -107,6 +115,46 @@ public interface Header<T extends Header<T>> extends Map<String,Object> {
      * @param cty the JWT JOSE {@code cty} header value or {@code null} to remove the property from the JSON map.
      */
     T setContentType(String cty);
+
+    /**
+     * Returns the JWT {@code alg} (Algorithm) header value or {@code null} if not present.
+     *
+     * <ul>
+     *     <li>If the JWT is a Signed JWT (a JWS), the <a href="https://tools.ietf.org/html/rfc7515#section-4.1.1">
+     *      <code>alg</code></a> (Algorithm) header parameter identifies the cryptographic algorithm used to secure the
+     *      JWS.  Consider using {@link io.jsonwebtoken.SignatureAlgorithm#forName(String) SignatureAlgorithm.forName} to
+     *      convert this string value to a type-safe enum instance.</li>
+     *      <li>If the JWT is an Encrypted JWT (a JWE), the
+     * <a href="https://tools.ietf.org/html/rfc7516#section-4.1.1"><code>alg</code></a> (Algorithm) header parameter
+     * identifies the cryptographic key management algorithm used to encrypt or determine the value of the Content
+     * Encryption Key (CEK).  The encrypted content is not usable if the <code>alg</code> value does not represent a
+     * supported algorithm, or if the recipient does not have a key that can be used with that algorithm</li>
+     * </ul>
+     *
+     * @return the {@code alg} header value or {@code null} if not present.  This will always be
+     * {@code non-null} on validly constructed JWT instances, but could be {@code null} during construction.
+     */
+    String getAlgorithm();
+
+    /**
+     * Sets the JWT <code>alg</code></a> (Algorithm) header value.  A {@code null} value will remove the property
+     * from the JSON map.
+     * <ul>
+     *     <li>If the JWT is a Signed JWT (a JWS), the <a href="https://tools.ietf.org/html/rfc7515#section-4.1.1">
+     *      <code>alg</code></a> (Algorithm) header parameter identifies the cryptographic algorithm used to secure the
+     *      JWS.  Consider using {@link io.jsonwebtoken.SignatureAlgorithm#forName(String) SignatureAlgorithm.forName} to
+     *      convert this string value to a type-safe enum instance.</li>
+     *      <li>If the JWT is an Encrypted JWT (a JWE), the
+     * <a href="https://tools.ietf.org/html/rfc7516#section-4.1.1"><code>alg</code></a> (Algorithm) header parameter
+     * identifies the cryptographic key management algorithm used to encrypt or determine the value of the Content
+     * Encryption Key (CEK).  The encrypted content is not usable if the <code>alg</code> value does not represent a
+     * supported algorithm, or if the recipient does not have a key that can be used with that algorithm</li>
+     * </ul>
+     *
+     * @param alg the {@code alg} header value
+     * @return this header for method chaining
+     */
+    T setAlgorithm(String alg);
 
     /**
      * Returns the JWT  <a href="https://tools.ietf.org/html/rfc7516#section-4.1.3"><code>zip</code></a>

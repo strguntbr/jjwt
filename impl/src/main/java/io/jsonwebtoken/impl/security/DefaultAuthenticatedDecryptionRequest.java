@@ -20,6 +20,9 @@ import io.jsonwebtoken.security.AuthenticatedDecryptionRequest;
 
 import java.security.Key;
 
+/**
+ * @since 0.11.0
+ */
 public class DefaultAuthenticatedDecryptionRequest<T extends Key> extends DefaultDecryptionRequest<T>
         implements AuthenticatedDecryptionRequest<T> {
 

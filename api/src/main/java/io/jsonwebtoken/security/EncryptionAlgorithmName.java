@@ -1,5 +1,8 @@
 package io.jsonwebtoken.security;
 
+/**
+ * @since 0.11.0
+ */
 public enum EncryptionAlgorithmName {
 
     A128CBC_HS256("A128CBC-HS256", "AES_128_CBC_HMAC_SHA_256 authenticated encryption algorithm, as defined in https://tools.ietf.org/html/rfc7518#section-5.2.3", "AES/CBC/PKCS5Padding"),

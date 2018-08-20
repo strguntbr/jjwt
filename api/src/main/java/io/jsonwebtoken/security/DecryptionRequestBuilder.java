@@ -17,6 +17,9 @@ package io.jsonwebtoken.security;
 
 import java.security.Key;
 
+/**
+ * @since 0.11.0
+ */
 public interface DecryptionRequestBuilder<T extends Key> {
 
     DecryptionRequestBuilder<T> setInitializationVector(byte[] iv);

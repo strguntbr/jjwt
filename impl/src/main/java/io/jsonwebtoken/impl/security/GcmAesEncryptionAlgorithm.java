@@ -12,6 +12,9 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.GCMParameterSpec;
 import java.security.spec.AlgorithmParameterSpec;
 
+/**
+ * @since 0.11.0
+ */
 public class GcmAesEncryptionAlgorithm extends AbstractAesEncryptionAlgorithm {
 
     //TODO: Remove this static block when JDK 7 support is removed
@@ -35,7 +38,7 @@ public class GcmAesEncryptionAlgorithm extends AbstractAesEncryptionAlgorithm {
     }
 
     @Override
-    protected EncryptionResult doEncrypt(EncryptionRequest req) throws Exception {
+    protected EncryptionResult doEncrypt(EncryptionRequest<SecretKey> req) throws Exception {
 
         //Ensure IV:
         byte[] iv = ensureEncryptionIv(req);
@@ -70,12 +73,12 @@ public class GcmAesEncryptionAlgorithm extends AbstractAesEncryptionAlgorithm {
     }
 
     @Override
-    protected byte[] doDecrypt(DecryptionRequest dreq) throws Exception {
+    protected byte[] doDecrypt(DecryptionRequest<SecretKey> dreq) throws Exception {
 
         Assert.isInstanceOf(AuthenticatedDecryptionRequest.class, dreq,
                 "AES GCM encryption always authenticates and therefore requires that DecryptionRequests are " +
                         "AuthenticatedDecryptionRequest instances.");
-        AuthenticatedDecryptionRequest req = (AuthenticatedDecryptionRequest) dreq;
+        AuthenticatedDecryptionRequest<SecretKey> req = (AuthenticatedDecryptionRequest<SecretKey>) dreq;
 
         byte[] tag = req.getAuthenticationTag();
         Assert.notEmpty(tag, "AuthenticatedDecryptionRequests must include a non-empty authentication tag.");

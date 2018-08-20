@@ -53,6 +53,17 @@ public class DefaultHeader<T extends Header<T>> extends JwtMap implements Header
         return (T)this;
     }
 
+    @Override
+    public String getAlgorithm() {
+        return getString(ALGORITHM);
+    }
+
+    @Override
+    public T setAlgorithm(String alg) {
+        setValue(ALGORITHM, alg);
+        return (T)this;
+    }
+
     @SuppressWarnings("deprecation")
     @Override
     public String getCompressionAlgorithm() {

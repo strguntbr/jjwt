@@ -8,7 +8,7 @@ import java.util.List;
  * Type-safe representation of standard JWE encryption key management algorithm names as defined in the
  * <a href="https://tools.ietf.org/html/rfc7518">JSON Web Algorithms</a> specification.
  *
- * @since 0.7.0
+ * @since 0.11.0
  */
 public enum KeyManagementAlgorithmName {
 

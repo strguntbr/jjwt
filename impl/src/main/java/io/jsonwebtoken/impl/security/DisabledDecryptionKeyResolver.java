@@ -6,7 +6,7 @@ import io.jsonwebtoken.security.DecryptionKeyResolver;
 import java.security.Key;
 
 /**
- * @since 0.7.0
+ * @since 0.11.0
  */
 public class DisabledDecryptionKeyResolver implements DecryptionKeyResolver {
 

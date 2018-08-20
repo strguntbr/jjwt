@@ -68,30 +68,6 @@ public interface JwsHeader extends Header<JwsHeader> {
     public static final String CRITICAL = "crit";
 
     /**
-     * Returns the JWS <a href="https://tools.ietf.org/html/rfc7515#section-4.1.1">
-     * <code>alg</code></a> (algorithm) header value or {@code null} if not present.
-     * <p>The algorithm header parameter identifies the cryptographic algorithm used to secure the JWS.  Consider
-     * using {@link io.jsonwebtoken.SignatureAlgorithm#forName(String) SignatureAlgorithm.forName} to convert this
-     * string value to a type-safe enum instance.</p>
-     *
-     * @return the JWS {@code alg} header value or {@code null} if not present.  This will always be
-     * {@code non-null} on validly constructed JWS instances, but could be {@code null} during construction.
-     */
-    String getAlgorithm();
-
-    /**
-     * Sets the JWT <a href="https://tools.ietf.org/html/rfc7515#section-4.1.1">
-     * <code>alg</code></a> (Algorithm) header value.  A {@code null} value will remove the property from the JSON map.
-     * <p>The algorithm header parameter identifies the cryptographic algorithm used to secure the JWS.  Consider
-     * using a type-safe {@link io.jsonwebtoken.SignatureAlgorithm SignatureAlgorithm} instance and using its
-     * {@link io.jsonwebtoken.SignatureAlgorithm#getValue() value} as the argument to this method.</p>
-     *
-     * @param alg the JWS {@code alg} header value or {@code null} to remove the property from the JSON map.
-     * @return the {@code Header} instance for method chaining.
-     */
-    JwsHeader setAlgorithm(String alg);
-
-    /**
      * Returns the JWS <a href="https://tools.ietf.org/html/rfc7516#section-4.1.4">
      * <code>kid</code></a> (Key ID) header value or {@code null} if not present.
      * <p>The keyId header parameter is a hint indicating which key was used to secure the JWS.  This parameter allows

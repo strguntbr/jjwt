@@ -4,6 +4,9 @@ import io.jsonwebtoken.lang.Classes;
 
 import javax.crypto.SecretKey;
 
+/**
+ * @since 0.11.0
+ */
 public final class EncryptionRequests {
 
     private EncryptionRequests(){} //prevent instantiation

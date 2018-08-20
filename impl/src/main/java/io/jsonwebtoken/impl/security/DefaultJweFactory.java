@@ -10,6 +10,9 @@ import io.jsonwebtoken.security.EncryptionAlgorithms;
 
 import java.util.Map;
 
+/**
+ * @since 0.11.0
+ */
 public class DefaultJweFactory {
 
     private final Decoder<String, byte[]> base64UrlDecoder;

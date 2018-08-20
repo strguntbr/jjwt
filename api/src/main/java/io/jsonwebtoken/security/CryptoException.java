@@ -17,6 +17,9 @@ package io.jsonwebtoken.security;
 
 import io.jsonwebtoken.JwtException;
 
+/**
+ * @since 0.11.0
+ */
 public class CryptoException extends JwtException {
 
     public CryptoException(String message) {

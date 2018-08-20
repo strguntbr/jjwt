@@ -21,6 +21,9 @@ import io.jsonwebtoken.security.EncryptionRequest;
 import java.security.Key;
 import java.security.SecureRandom;
 
+/**
+ * @since 0.11.0
+ */
 public class DefaultEncryptionRequest<T extends Key> extends AbstractCryptoRequest<T> implements EncryptionRequest<T> {
 
     private final SecureRandom random;

@@ -24,6 +24,9 @@ import java.security.SecureRandom;
 
 import static io.jsonwebtoken.lang.Arrays.*;
 
+/**
+ * @since 0.11.0
+ */
 public class DefaultEncryptionRequestBuilder<T extends Key> implements EncryptionRequestBuilder<T> {
 
     private SecureRandom secureRandom;

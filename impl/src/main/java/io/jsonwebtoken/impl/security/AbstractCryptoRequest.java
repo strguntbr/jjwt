@@ -20,6 +20,9 @@ import io.jsonwebtoken.security.CryptoRequest;
 
 import java.security.Key;
 
+/**
+ * @since 0.11.0
+ */
 public abstract class AbstractCryptoRequest<T extends Key> implements CryptoRequest<T> {
 
     private final T key;

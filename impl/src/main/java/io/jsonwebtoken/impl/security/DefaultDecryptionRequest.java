@@ -20,6 +20,9 @@ import io.jsonwebtoken.security.DecryptionRequest;
 
 import java.security.Key;
 
+/**
+ * @since 0.11.0
+ */
 public class DefaultDecryptionRequest<T extends Key> extends AbstractCryptoRequest<T> implements DecryptionRequest<T> {
 
     private final byte[] ciphertext;

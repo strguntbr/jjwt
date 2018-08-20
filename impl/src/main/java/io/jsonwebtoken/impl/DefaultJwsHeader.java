@@ -30,17 +30,6 @@ public class DefaultJwsHeader extends DefaultHeader<JwsHeader> implements JwsHea
     }
 
     @Override
-    public String getAlgorithm() {
-        return getString(ALGORITHM);
-    }
-
-    @Override
-    public JwsHeader setAlgorithm(String alg) {
-        setValue(ALGORITHM, alg);
-        return this;
-    }
-
-    @Override
     public String getKeyId() {
         return getString(KEY_ID);
     }

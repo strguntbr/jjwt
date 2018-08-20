@@ -20,6 +20,9 @@ import io.jsonwebtoken.security.EncryptionResult;
 
 import static io.jsonwebtoken.lang.Arrays.*;
 
+/**
+ * @since 0.11.0
+ */
 public class DefaultEncryptionResult implements EncryptionResult {
 
     protected final byte[] iv;

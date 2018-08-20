@@ -19,6 +19,9 @@ import java.security.spec.AlgorithmParameterSpec;
 
 import static io.jsonwebtoken.lang.Arrays.*;
 
+/**
+ * @since 0.11.0
+ */
 public abstract class AbstractAesEncryptionAlgorithm implements SymmetricEncryptionAlgorithm {
 
     protected static final int AES_BLOCK_SIZE_BYTES = 16;
@@ -57,6 +60,7 @@ public abstract class AbstractAesEncryptionAlgorithm implements SymmetricEncrypt
         return this.requiredKeyByteLength;
     }
 
+    @Override
     public SecretKey generateKey() {
         try {
             return doGenerateKey();

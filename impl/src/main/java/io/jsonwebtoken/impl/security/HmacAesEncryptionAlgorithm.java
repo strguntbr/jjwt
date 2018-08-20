@@ -18,6 +18,9 @@ import java.util.Arrays;
 
 import static io.jsonwebtoken.lang.Arrays.*;
 
+/**
+ * @since 0.11.0
+ */
 public class HmacAesEncryptionAlgorithm extends AbstractAesEncryptionAlgorithm {
 
     private static final String TRANSFORMATION_STRING = "AES/CBC/PKCS5Padding";
@@ -145,7 +148,7 @@ public class HmacAesEncryptionAlgorithm extends AbstractAesEncryptionAlgorithm {
         Assert.isInstanceOf(AuthenticatedDecryptionRequest.class, dreq,
                 "AES_CBC_HMAC_SHA2 encryption always authenticates and therefore requires that DecryptionRequests " +
                         "are AuthenticatedDecryptionRequest instances.");
-        AuthenticatedDecryptionRequest req = (AuthenticatedDecryptionRequest) dreq;
+        AuthenticatedDecryptionRequest<SecretKey> req = (AuthenticatedDecryptionRequest<SecretKey>) dreq;
 
         byte[] tag = req.getAuthenticationTag();
         Assert.notEmpty(tag, "AuthenticatedDecryptionRequests must include a non-empty authentication tag.");

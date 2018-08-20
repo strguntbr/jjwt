@@ -7,6 +7,9 @@ import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * @since 0.11.0
+ */
 public final class EncryptionAlgorithms {
 
     private static final String HMAC = "io.jsonwebtoken.impl.security.HmacAesEncryptionAlgorithm";

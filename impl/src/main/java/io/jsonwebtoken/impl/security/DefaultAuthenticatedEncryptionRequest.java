@@ -21,6 +21,9 @@ import io.jsonwebtoken.security.AuthenticatedEncryptionRequest;
 import java.security.Key;
 import java.security.SecureRandom;
 
+/**
+ * @since 0.11.0
+ */
 public class DefaultAuthenticatedEncryptionRequest<T extends Key> extends DefaultEncryptionRequest<T>
     implements AuthenticatedEncryptionRequest<T> {
 

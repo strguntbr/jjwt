@@ -8,6 +8,9 @@ import io.jsonwebtoken.security.EncryptionAlgorithm;
 import io.jsonwebtoken.security.EncryptionAlgorithmLocator;
 import io.jsonwebtoken.security.EncryptionAlgorithms;
 
+/**
+ * @since 0.11.0
+ */
 public class DefaultEncryptionAlgorithmLocator implements EncryptionAlgorithmLocator {
 
     @Override

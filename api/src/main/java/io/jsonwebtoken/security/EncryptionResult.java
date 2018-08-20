@@ -15,6 +15,9 @@
  */
 package io.jsonwebtoken.security;
 
+/**
+ * @since 0.11.0
+ */
 public interface EncryptionResult {
 
     byte[] getInitializationVector();
