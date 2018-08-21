@@ -7,6 +7,6 @@ public final class KeyManagementModes {
     private KeyManagementModes(){}
 
     public static KeyManagementMode direct(SecretKey secretKey) {
-        return new DirectKeyAgreementMode(secretKey);
+        return new DirectEncryptionMode(secretKey);
     }
 }
