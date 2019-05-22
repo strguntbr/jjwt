@@ -112,6 +112,7 @@
         <module>api</module>
         <module>impl</module>
         <module>extensions</module>
+        <module>jsr310</module>
     </modules>
 
     <dependencyManagement>

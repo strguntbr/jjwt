@@ -236,6 +236,14 @@ public class DefaultJwtBuilder implements JwtBuilder {
     }
 
     @Override
+    public JwtBuilder setExpiration(Object exp) {
+        if (exp != null || this.claims != null) {
+            ensureClaims().setExpiration(exp);
+        }
+        return this;
+    }
+
+    @Override
     public JwtBuilder setNotBefore(Date nbf) {
         if (nbf != null) {
             ensureClaims().setNotBefore(nbf);
@@ -249,6 +257,15 @@ public class DefaultJwtBuilder implements JwtBuilder {
     }
 
     @Override
+    public JwtBuilder setNotBefore(Object nbf) {
+        if (nbf != null || this.claims != null) {
+            ensureClaims().setNotBefore(nbf);
+        }
+        return this;
+
+    }
+
+    @Override
     public JwtBuilder setIssuedAt(Date iat) {
         if (iat != null) {
             ensureClaims().setIssuedAt(iat);
@@ -259,6 +276,15 @@ public class DefaultJwtBuilder implements JwtBuilder {
             }
         }
         return this;
+    }
+
+    @Override
+    public JwtBuilder setIssuedAt(Object iat) {
+        if (iat != null || this.claims != null) {
+            ensureClaims().setIssuedAt(iat);
+        }
+        return this;
+
     }
 
     @Override

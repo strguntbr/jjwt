@@ -113,11 +113,19 @@ public interface Claims extends Map<String, Object>, ClaimsMutator<Claims> {
      */
     Date getExpiration();
 
+    <T> T getExpiration(Class<T> dateClass);
+
     /**
      * {@inheritDoc}
      */
     @Override //only for better/targeted JavaDoc
     Claims setExpiration(Date exp);
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override //only for better/targeted JavaDoc
+    Claims setExpiration(Object exp);
 
     /**
      * Returns the JWT <a href="https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-25#section-4.1.5">
@@ -129,11 +137,19 @@ public interface Claims extends Map<String, Object>, ClaimsMutator<Claims> {
      */
     Date getNotBefore();
 
+    <T> T getNotBefore(Class<T> dateClass);
+
     /**
      * {@inheritDoc}
      */
     @Override //only for better/targeted JavaDoc
     Claims setNotBefore(Date nbf);
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override //only for better/targeted JavaDoc
+    Claims setNotBefore(Object nbf);
 
     /**
      * Returns the JWT <a href="https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-25#section-4.1.6">
@@ -145,11 +161,19 @@ public interface Claims extends Map<String, Object>, ClaimsMutator<Claims> {
      */
     Date getIssuedAt();
 
+    <T> T getIssuedAt(Class<T> dateClass);
+
     /**
      * {@inheritDoc}
      */
     @Override //only for better/targeted JavaDoc
     Claims setIssuedAt(Date iat);
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override //only for better/targeted JavaDoc
+    Claims setIssuedAt(Object iat);
 
     /**
      * Returns the JWTs <a href="https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-25#section-4.1.7">
