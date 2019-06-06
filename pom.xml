@@ -84,7 +84,8 @@
         <maven.jar.version>3.0.2</maven.jar.version>
         <maven.compiler.version>3.6.1</maven.compiler.version>
 
-        <jdk.version>1.7</jdk.version>
+        <jdk.source>1.7</jdk.source>
+        <jdk.target>1.7</jdk.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <buildNumber>${user.name}-${maven.build.timestamp}</buildNumber>
 
@@ -129,6 +130,11 @@
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt-orgjson</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-jsr310</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -252,8 +258,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven.compiler.version}</version>
                 <configuration>
-                    <source>${jdk.version}</source>
-                    <target>${jdk.version}</target>
+                    <source>${jdk.source}</source>
+                    <target>${jdk.target}</target>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>

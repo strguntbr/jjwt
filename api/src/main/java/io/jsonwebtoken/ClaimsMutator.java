@@ -65,6 +65,8 @@ public interface ClaimsMutator<T extends ClaimsMutator> {
      */
     T setExpiration(Date exp);
 
+    T setExpiration(Object exp);
+
     /**
      * Sets the JWT <a href="https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-25#section-4.1.5">
      * <code>nbf</code></a> (not before) timestamp.  A {@code null} value will remove the property from the JSON map.
@@ -76,6 +78,8 @@ public interface ClaimsMutator<T extends ClaimsMutator> {
      */
     T setNotBefore(Date nbf);
 
+    T setNotBefore(Object nbf);
+
     /**
      * Sets the JWT <a href="https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-25#section-4.1.6">
      * <code>iat</code></a> (issued at) timestamp.  A {@code null} value will remove the property from the JSON map.
@@ -86,6 +90,8 @@ public interface ClaimsMutator<T extends ClaimsMutator> {
      * @return the {@code Claims} instance for method chaining.
      */
     T setIssuedAt(Date iat);
+
+    T setIssuedAt(Object iat);
 
     /**
      * Sets the JWT <a href="https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-25#section-4.1.7">

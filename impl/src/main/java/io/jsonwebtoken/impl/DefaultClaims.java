@@ -70,8 +70,19 @@ public class DefaultClaims extends JwtMap implements Claims {
     }
 
     @Override
+    public <T> T getExpiration(Class<T> dateClass) {
+        return getDateViaGetter(Claims.EXPIRATION, dateClass);
+    }
+
+    @Override
     public Claims setExpiration(Date exp) {
         setDateAsSeconds(Claims.EXPIRATION, exp);
+        return this;
+    }
+
+    @Override
+    public Claims setExpiration(Object exp) {
+        setDateViaSetter(Claims.EXPIRATION, exp);
         return this;
     }
 
@@ -81,8 +92,19 @@ public class DefaultClaims extends JwtMap implements Claims {
     }
 
     @Override
+    public <T> T getNotBefore(Class<T> dateClass) {
+        return getDateViaGetter(Claims.NOT_BEFORE, dateClass);
+    }
+
+    @Override
     public Claims setNotBefore(Date nbf) {
         setDateAsSeconds(Claims.NOT_BEFORE, nbf);
+        return this;
+    }
+
+    @Override
+    public Claims setNotBefore(Object nbf) {
+        setDateViaSetter(Claims.NOT_BEFORE, nbf);
         return this;
     }
 
@@ -92,8 +114,19 @@ public class DefaultClaims extends JwtMap implements Claims {
     }
 
     @Override
+    public <T> T getIssuedAt(Class<T> dateClass) {
+        return getDateViaGetter(Claims.ISSUED_AT, dateClass);
+    }
+
+    @Override
     public Claims setIssuedAt(Date iat) {
         setDateAsSeconds(Claims.ISSUED_AT, iat);
+        return this;
+    }
+
+    @Override
+    public Claims setIssuedAt(Object iat) {
+        setDateViaSetter(Claims.ISSUED_AT, iat);
         return this;
     }
 
@@ -119,9 +152,8 @@ public class DefaultClaims extends JwtMap implements Claims {
 
     @Override
     public Object put(String s, Object o) {
-        if (o instanceof Date && isSpecDate(s)) { //since 0.10.0
-            Date date = (Date)o;
-            return setDateAsSeconds(s, date);
+        if (isSpecDate(s) && isSupportedDateClassForSet(o.getClass())) { //since 0.10.0
+            return setDateViaSetter(s, o);
         }
         return super.put(s, o);
     }
@@ -132,6 +164,10 @@ public class DefaultClaims extends JwtMap implements Claims {
         Object value = get(claimName);
         if (value == null) {
             return null;
+        }
+
+        if (isSpecDate(claimName) && isSupportedDateClassForGet(requiredType)) {
+            return getDateViaGetter(claimName, requiredType);
         }
 
         if (Date.class.equals(requiredType)) {
